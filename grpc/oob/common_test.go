@@ -8,8 +8,8 @@ import (
 
 	"github.com/go-logr/logr"
 	"github.com/google/go-cmp/cmp"
-	v1 "github.com/tinkerbell/pbnj/api/v1"
-	"github.com/tinkerbell/pbnj/pkg/repository"
+	v1 "github.com/seayuns/pbnj/api/v1"
+	"github.com/seayuns/pbnj/pkg/repository"
 )
 
 func TestParseAuth(t *testing.T) {

@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/philippgille/gokv"
-	"github.com/tinkerbell/pbnj/pkg/repository"
+	"github.com/seayuns/pbnj/pkg/repository"
 )
 
 // GoKV store, methods implement repository.Actions interface.

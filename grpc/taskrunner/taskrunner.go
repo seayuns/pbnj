@@ -12,8 +12,8 @@ import (
 	"github.com/hashicorp/go-multierror"
 	"github.com/pkg/errors"
 
-	"github.com/tinkerbell/pbnj/pkg/metrics"
-	"github.com/tinkerbell/pbnj/pkg/repository"
+	"github.com/seayuns/pbnj/pkg/metrics"
+	"github.com/seayuns/pbnj/pkg/repository"
 )
 
 // Runner for executing a task.

@@ -17,11 +17,11 @@ import (
 	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
 	"github.com/packethost/pkg/grpc/authz"
 	"github.com/rs/zerolog"
+	grpcsvr "github.com/seayuns/pbnj/grpc"
+	"github.com/seayuns/pbnj/grpc/oob"
+	"github.com/seayuns/pbnj/pkg/http"
+	"github.com/seayuns/pbnj/pkg/logging"
 	"github.com/spf13/cobra"
-	grpcsvr "github.com/tinkerbell/pbnj/grpc"
-	"github.com/tinkerbell/pbnj/grpc/oob"
-	"github.com/tinkerbell/pbnj/pkg/http"
-	"github.com/tinkerbell/pbnj/pkg/logging"
 	"go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc"
 	"goa.design/goa/grpc/middleware"
 	"google.golang.org/grpc"
@@ -61,7 +61,7 @@ var (
 			ctx, otelShutdown := otelinit.InitOpenTelemetry(ctx, "pbnj")
 			defer otelShutdown(ctx)
 
-			logger := defaultLogger(logLevel).WithName("github.com/tinkerbell/pbnj").WithValues("service", "github.com/tinkerbell/pbnj")
+			logger := defaultLogger(logLevel).WithName("github.com/seayuns/pbnj").WithValues("service", "github.com/seayuns/pbnj")
 
 			authzInterceptor := func(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (interface{}, error) {
 				return handler(ctx, req)

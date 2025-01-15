@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "google/protobuf/empty.proto";
 
-option go_package = "github.com/tinkerbell/pbnj/api/v1";
+option go_package = "github.com/seayuns/pbnj/api/v1";
 option ruby_package = "Pbnj::Api::V1";
 
 package github.com.tinkerbell.pbnj.api.v1;

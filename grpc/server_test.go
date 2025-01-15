@@ -13,8 +13,8 @@ import (
 	"github.com/go-logr/logr"
 	"github.com/philippgille/gokv"
 	"github.com/philippgille/gokv/freecache"
-	"github.com/tinkerbell/pbnj/grpc/persistence"
-	"github.com/tinkerbell/pbnj/pkg/http"
+	"github.com/seayuns/pbnj/grpc/persistence"
+	"github.com/seayuns/pbnj/pkg/http"
 	"golang.org/x/sync/errgroup"
 	"google.golang.org/grpc"
 )

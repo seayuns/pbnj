@@ -9,9 +9,9 @@ import (
 	"github.com/onsi/gomega"
 	"github.com/philippgille/gokv"
 	"github.com/philippgille/gokv/freecache"
-	v1 "github.com/tinkerbell/pbnj/api/v1"
-	"github.com/tinkerbell/pbnj/grpc/persistence"
-	"github.com/tinkerbell/pbnj/grpc/taskrunner"
+	v1 "github.com/seayuns/pbnj/api/v1"
+	"github.com/seayuns/pbnj/grpc/persistence"
+	"github.com/seayuns/pbnj/grpc/taskrunner"
 )
 
 func TestDevice(t *testing.T) {

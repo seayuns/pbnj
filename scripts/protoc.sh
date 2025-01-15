@@ -8,7 +8,7 @@
 #
 set -e
 
-REPO=github.com/tinkerbell/pbnj
+REPO=github.com/seayuns/pbnj
 PROTOS_LOC=api/v1
 PROTOC_VERSION=3.13.0
 

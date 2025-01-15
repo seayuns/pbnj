@@ -11,8 +11,8 @@ import (
 	"github.com/go-logr/logr"
 	"github.com/go-logr/zerologr"
 	"github.com/rs/zerolog"
-	"github.com/tinkerbell/pbnj/cmd"
-	"github.com/tinkerbell/pbnj/test/runner"
+	"github.com/seayuns/pbnj/cmd"
+	"github.com/seayuns/pbnj/test/runner"
 )
 
 var (

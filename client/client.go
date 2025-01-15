@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	v1 "github.com/tinkerbell/pbnj/api/v1"
+	v1 "github.com/seayuns/pbnj/api/v1"
 )
 
 // MachinePower executes a power action against the server and retrieves status.

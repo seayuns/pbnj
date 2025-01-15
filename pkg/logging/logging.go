@@ -9,7 +9,7 @@ import (
 	"github.com/go-logr/logr"
 	grpc_ctxtags "github.com/grpc-ecosystem/go-grpc-middleware/tags"
 	"github.com/rs/xid"
-	v1 "github.com/tinkerbell/pbnj/api/v1"
+	v1 "github.com/seayuns/pbnj/api/v1"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
 )

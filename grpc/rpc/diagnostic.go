@@ -5,10 +5,10 @@ import (
 	"time"
 
 	"github.com/rs/xid"
-	v1 "github.com/tinkerbell/pbnj/api/v1"
-	"github.com/tinkerbell/pbnj/grpc/oob/diagnostic"
-	"github.com/tinkerbell/pbnj/pkg/logging"
-	"github.com/tinkerbell/pbnj/pkg/task"
+	v1 "github.com/seayuns/pbnj/api/v1"
+	"github.com/seayuns/pbnj/grpc/oob/diagnostic"
+	"github.com/seayuns/pbnj/pkg/logging"
+	"github.com/seayuns/pbnj/pkg/task"
 	"go.opentelemetry.io/otel/trace"
 	"google.golang.org/protobuf/types/known/emptypb"
 )

@@ -1,6 +1,6 @@
 package main
 
-import "github.com/tinkerbell/pbnj/cmd"
+import "github.com/seayuns/pbnj/cmd"
 
 func main() {
 	cmd.Execute()

@@ -1,6 +1,6 @@
 # PBNJ
 
-![For each commit and PR](https://github.com/tinkerbell/pbnj/workflows/For%20each%20commit%20and%20PR/badge.svg)
+![For each commit and PR](https://github.com/seayuns/pbnj/workflows/For%20each%20commit%20and%20PR/badge.svg)
 
 ## Description
 

@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/go-logr/logr"
-	"github.com/tinkerbell/pbnj/pkg/repository"
+	"github.com/seayuns/pbnj/pkg/repository"
 )
 
 // Task interface for doing BMC actions.

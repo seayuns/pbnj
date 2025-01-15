@@ -9,8 +9,8 @@ import (
 	"github.com/philippgille/gokv"
 	"github.com/philippgille/gokv/freecache"
 	"github.com/rs/xid"
-	"github.com/tinkerbell/pbnj/grpc/persistence"
-	"github.com/tinkerbell/pbnj/pkg/repository"
+	"github.com/seayuns/pbnj/grpc/persistence"
+	"github.com/seayuns/pbnj/pkg/repository"
 )
 
 func TestRoundTrip(t *testing.T) {

@@ -1,4 +1,4 @@
-module github.com/tinkerbell/pbnj
+module github.com/seayuns/pbnj
 
 go 1.20
 

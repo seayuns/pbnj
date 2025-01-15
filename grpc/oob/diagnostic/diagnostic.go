@@ -2,8 +2,8 @@ package diagnostic
 
 import (
 	"github.com/go-logr/logr"
-	v1 "github.com/tinkerbell/pbnj/api/v1"
-	common "github.com/tinkerbell/pbnj/grpc/oob"
+	v1 "github.com/seayuns/pbnj/api/v1"
+	common "github.com/seayuns/pbnj/grpc/oob"
 )
 
 type Action struct {

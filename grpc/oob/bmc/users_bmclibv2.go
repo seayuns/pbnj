@@ -6,9 +6,9 @@ import (
 
 	"github.com/bmc-toolbox/bmclib/v2"
 	"github.com/go-logr/logr"
-	v1 "github.com/tinkerbell/pbnj/api/v1"
-	common "github.com/tinkerbell/pbnj/grpc/oob"
-	"github.com/tinkerbell/pbnj/pkg/repository"
+	v1 "github.com/seayuns/pbnj/api/v1"
+	common "github.com/seayuns/pbnj/grpc/oob"
+	"github.com/seayuns/pbnj/pkg/repository"
 )
 
 // bmclibv2UserManagement wraps attributes to manage user accounts with bmclib v2.

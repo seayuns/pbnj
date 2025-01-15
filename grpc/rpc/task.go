@@ -3,9 +3,9 @@ package rpc
 import (
 	"context"
 
-	v1 "github.com/tinkerbell/pbnj/api/v1"
-	"github.com/tinkerbell/pbnj/pkg/logging"
-	"github.com/tinkerbell/pbnj/pkg/task"
+	v1 "github.com/seayuns/pbnj/api/v1"
+	"github.com/seayuns/pbnj/pkg/logging"
+	"github.com/seayuns/pbnj/pkg/task"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

@@ -10,10 +10,10 @@ import (
 	"github.com/philippgille/gokv"
 	"github.com/philippgille/gokv/freecache"
 	"github.com/rs/xid"
-	v1 "github.com/tinkerbell/pbnj/api/v1"
-	"github.com/tinkerbell/pbnj/grpc/persistence"
-	"github.com/tinkerbell/pbnj/grpc/taskrunner"
-	"github.com/tinkerbell/pbnj/pkg/repository"
+	v1 "github.com/seayuns/pbnj/api/v1"
+	"github.com/seayuns/pbnj/grpc/persistence"
+	"github.com/seayuns/pbnj/grpc/taskrunner"
+	"github.com/seayuns/pbnj/pkg/repository"
 )
 
 func TestTaskFound(t *testing.T) {

@@ -4,9 +4,9 @@ import (
 	"context"
 	"os"
 
+	v1 "github.com/seayuns/pbnj/api/v1"
+	v1Client "github.com/seayuns/pbnj/client"
 	"github.com/spf13/cobra"
-	v1 "github.com/tinkerbell/pbnj/api/v1"
-	v1Client "github.com/tinkerbell/pbnj/client"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
