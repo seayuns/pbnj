@@ -5,11 +5,10 @@ import (
 	"time"
 
 	"github.com/rs/xid"
+	uuid "github.com/satori/go.uuid"
 	v1 "github.com/seayuns/pbnj/api/v1"
-	"github.com/seayuns/pbnj/grpc/oob/machine"
 	"github.com/seayuns/pbnj/pkg/logging"
 	"github.com/seayuns/pbnj/pkg/task"
-	"go.opentelemetry.io/otel/trace"
 )
 
 // MachineService for doing power and device actions.
@@ -38,24 +37,40 @@ func (m *MachineService) BootDevice(ctx context.Context, in *v1.DeviceRequest) (
 		"efiBoot", in.EfiBoot,
 	)
 
-	execFunc := func(s chan string) (string, error) {
-		mbd, err := machine.NewBootDeviceSetter(
-			machine.WithDeviceRequest(in),
-			machine.WithLogger(l),
-			machine.WithStatusMessage(s),
-		)
-		if err != nil {
-			return "", err
-		}
-		// Because this is a background task, we want to pass through the span context, but not be
-		// a child context. This allows us to correctly plumb otel into the background task.
-		c := trace.ContextWithSpanContext(context.Background(), trace.SpanContextFromContext(ctx))
-		taskCtx, cancel := context.WithTimeout(c, m.Timeout)
-		defer cancel()
-		return mbd.BootDeviceSet(taskCtx, in.BootDevice.String(), in.Persistent, in.EfiBoot)
-	}
-	m.TaskRunner.Execute(ctx, l, "setting boot device", taskID, execFunc)
+	// execFunc := func(s chan string) (string, error) {
+	// 	mbd, err := machine.NewBootDeviceSetter(
+	// 		machine.WithDeviceRequest(in),
+	// 		machine.WithLogger(l),
+	// 		machine.WithStatusMessage(s),
+	// 	)
+	// 	if err != nil {
+	// 		return "", err
+	// 	}
+	// 	// Because this is a background task, we want to pass through the span context, but not be
+	// 	// a child context. This allows us to correctly plumb otel into the background task.
+	// 	c := trace.ContextWithSpanContext(context.Background(), trace.SpanContextFromContext(ctx))
+	// 	taskCtx, cancel := context.WithTimeout(c, m.Timeout)
+	// 	defer cancel()
+	// 	return mbd.BootDeviceSet(taskCtx, in.BootDevice.String(), in.Persistent, in.EfiBoot)
+	// }
+	// m.TaskRunner.Execute(ctx, l, "setting boot device", taskID, execFunc)
 
+	// fake api
+	taskMockId := uuid.NewV4().String()
+	if in.GetBootDevice() == v1.BootDevice_BOOT_DEVICE_PXE {
+		time.Sleep(10 * time.Second)
+		return &v1.DeviceResponse{TaskId: "fake-task-pxe" + taskMockId}, nil
+	}
+	if in.GetBootDevice() == v1.BootDevice_BOOT_DEVICE_DISK {
+		time.Sleep(10 * time.Second)
+		return &v1.DeviceResponse{TaskId: "fake-task-disk" + taskMockId}, nil
+	} else if in.GetBootDevice() == v1.BootDevice_BOOT_DEVICE_CDROM {
+		time.Sleep(10 * time.Second)
+		return &v1.DeviceResponse{TaskId: "fake-task-cdrom" + taskMockId}, nil
+	} else if in.GetBootDevice() == v1.BootDevice_BOOT_DEVICE_BIOS {
+		time.Sleep(10 * time.Second)
+		return &v1.DeviceResponse{TaskId: "fake-task-bios" + taskMockId}, nil
+	}
 	return &v1.DeviceResponse{TaskId: taskID}, nil
 }
 
@@ -73,23 +88,47 @@ func (m *MachineService) Power(ctx context.Context, in *v1.PowerRequest) (*v1.Po
 		"OffDuration", in.OffDuration,
 	)
 
-	execFunc := func(s chan string) (string, error) {
-		mp, err := machine.NewPowerSetter(
-			machine.WithPowerRequest(in),
-			machine.WithLogger(l),
-			machine.WithStatusMessage(s),
-		)
-		if err != nil {
-			return "", err
-		}
-		// Because this is a background task, we want to pass through the span context, but not be
-		// a child context. This allows us to correctly plumb otel into the background task.
-		c := trace.ContextWithSpanContext(context.Background(), trace.SpanContextFromContext(ctx))
-		taskCtx, cancel := context.WithTimeout(c, m.Timeout)
-		defer cancel()
-		return mp.PowerSet(taskCtx, in.PowerAction.String())
-	}
-	m.TaskRunner.Execute(ctx, l, "power action: "+in.GetPowerAction().String(), taskID, execFunc)
+	//fake api
+	// execFunc := func(s chan string) (string, error) {
+	// 	mp, err := machine.NewPowerSetter(
+	// 		machine.WithPowerRequest(in),
+	// 		machine.WithLogger(l),
+	// 		machine.WithStatusMessage(s),
+	// 	)
+	// 	if err != nil {
+	// 		return "", err
+	// 	}
+	// 	// Because this is a background task, we want to pass through the span context, but not be
+	// 	// a child context. This allows us to correctly plumb otel into the background task.
+	// 	c := trace.ContextWithSpanContext(context.Background(), trace.SpanContextFromContext(ctx))
+	// 	taskCtx, cancel := context.WithTimeout(c, m.Timeout)
+	// 	defer cancel()
+	// 	return mp.PowerSet(taskCtx, in.PowerAction.String())
+	// }
+	// m.TaskRunner.Execute(ctx, l, "power action: "+in.GetPowerAction().String(), taskID, execFunc)
 
+	//fake api
+	taskMockId := uuid.NewV4().String()
+	if in.GetPowerAction() == v1.PowerAction_POWER_ACTION_OFF {
+		time.Sleep(10 * time.Second)
+		return &v1.PowerResponse{
+			TaskId: "fake-task-off" + taskMockId,
+		}, nil
+	} else if in.GetPowerAction() == v1.PowerAction_POWER_ACTION_ON {
+		time.Sleep(10 * time.Second)
+		return &v1.PowerResponse{
+			TaskId: "fake-task-on" + taskMockId,
+		}, nil
+	} else if in.GetPowerAction() == v1.PowerAction_POWER_ACTION_RESET {
+		time.Sleep(10 * time.Second)
+		return &v1.PowerResponse{
+			TaskId: "fake-task-reset" + taskMockId,
+		}, nil
+	} else if in.GetPowerAction() == v1.PowerAction_POWER_ACTION_CYCLE {
+		time.Sleep(10 * time.Second)
+		return &v1.PowerResponse{
+			TaskId: "fake-task-cycle" + taskMockId,
+		}, nil
+	}
 	return &v1.PowerResponse{TaskId: taskID}, nil
 }
